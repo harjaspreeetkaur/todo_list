@@ -1,11 +1,10 @@
 /**
- * jQuery for creating a popup box to display citation examples.
+ * jQuery for creating a handling To-do list events.
  */
 (function ($) {
   Drupal.behaviors.todoList = {
     attach: function (ctx) {
-      // When clicking on the name of the display mode we need to check the
-      // radio button.
+      // Trigger the list save when enter button is pressed.
       $('.new-todo').once('customBehavior').on('keydown', function (e) {
         saveData(e, this);
       });
