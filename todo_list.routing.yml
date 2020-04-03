@@ -1,0 +1,7 @@
+todo.list:
+  path: '/todo/list'
+  defaults:
+    _form: '\Drupal\todo_list\Form\TodoListForm'
+    _title: 'Todo List'
+  requirements:
+    _access: 'TRUE'

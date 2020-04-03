@@ -1,0 +1,8 @@
+todoList:
+  js:
+    js/todoList.js: {}
+  css:
+    theme:
+      css/todoList.form.css: { }
+  dependencies:
+    - core/drupal
