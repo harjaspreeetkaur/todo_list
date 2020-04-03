@@ -1,3 +1,4 @@
 name: To Do List
+description: 'Creates/Manages/Filters a task list'
 type: module
 core: 8.x
