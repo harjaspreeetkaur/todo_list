@@ -187,7 +187,7 @@ class TodoListForm extends FormBase {
       'remove' => [
         '#suffix' => '</li>',
         '#type' => 'submit',
-        '#value' => $this->t('Clear Task'),
+        '#value' => $this->t('Delete'),
         '#name' => "remove-{$element_key}",
         '#ajax' => [
           'callback' => '::updateTask',

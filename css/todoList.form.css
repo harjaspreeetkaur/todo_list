@@ -1,3 +1,13 @@
+.form-type-checkbox {
+  position: relative;
+  display: block;
+}
+
+.form-type-checkbox input[type="checkbox"] {
+  position: absolute;
+  margin-left: -20px;
+}
+
 .todo-list-form {
   font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.4em;
@@ -17,7 +27,15 @@
   position: relative;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
-.todoapp .ajax-throbber {
+
+.todoapp input.form-submit:hover,
+.todoapp input.form-submit:focus {
+  background: none;
+  text-decoration: underline;
+}
+
+.todoapp .ajax-throbber,
+.todoapp .ajax-progress {
   display: none;
 }
 
@@ -30,10 +48,11 @@
   text-align: center;
   color: rgba(175, 47, 47, 0.15);
   text-rendering: optimizeLegibility;
+  margin: 0;
 }
-.add-new-task .form-group {
-  margin-bottom: 2px;
-  margin-left: 44px;
+.add-new-task .form-group,
+.add-new-task .form-type-textfield {
+  margin: 0 0 2px 44px;
 }
 
 .add-new-task {
@@ -42,27 +61,33 @@
   display: inline-block;
 }
 
-.add-new-task .checkbox {
+.add-new-task .form-type-checkbox {
   margin: 0 0 0 30px;
 }
 
-.add-new-task .checkbox input[type="checkbox"] {
+.add-new-task .form-type-checkbox input[type="checkbox"] {
   margin-top: 15px;
 }
 
 .add-new-task .new-todo {
-  padding: 0 16px 0 0;
+  padding: 0 16px 0 3px;
   border: none;
   height: 44px;
   font-size: 24px;
-}
-.add-new-task .form-control:focus {
-  border: none;
-  box-shadow: none;
+  display: block;
+  width: 100%;
+  font-weight: 300;
+  margin: 0;
 }
 
-.add-new-task .btn,
-.editing .btn {
+.add-new-task .new-todo:focus {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.add-new-task .form-submit,
+.editing .form-submit {
   display: none;
 }
 
@@ -101,14 +126,25 @@
   text-decoration: line-through;
 }
 
-.todo-list li .edit {
+.todo-list li .button {
+  font-size: 12px;
+}
+
+.todo-list li .btn {
   color: transparent;
+  display: none;
+}
+
+.todo-list li .edit {
   border: none;
   background: none;
-  display: none;
   transition: color 0.2s ease-out;
   float: right;
   margin: -37px 17px 0 0;
+}
+
+.todo-list input.form-submit.edit {
+  margin: -30px 61px 0 0;
 }
 
 .todo-list li .glyphicon-pencil {
@@ -118,14 +154,15 @@
 }
 
 .todo-list li .destroy {
-  color: transparent;
   border: none;
   background: none;
-  display: none;
-  font-size: 0px;
   transition: color 0.2s ease-out;
   float: right;
   margin: -51px 0 0 0;
+}
+
+.todo-list input.form-submit.destroy {
+  margin-top: -31px;
 }
 
 .todo-list li .destroy:after {
@@ -139,17 +176,23 @@
   display: block;
 }
 
-.todo-list .checkbox {
+.todo-list .form-type-checkbox {
   margin: 0;
   position: initial;
 }
 
-.todo-list .form-group {
+.todo-list .form-type-textfield {
   margin: 0;
+}
+
+.todo-list .form-type-checkbox input[type="checkbox"] {
+  margin-left: 12px;
+  margin-top: 14px;
 }
 
 .todo-list .checkbox input[type="checkbox"] {
   margin-left: -36px;
+  margin-top: 4px;
 }
 
 .editing input[type="text"] {
@@ -218,11 +261,11 @@
   border-color: rgba(175, 47, 47, 0.1);
 }
 
-.filters .radio {
+.filters .form-type-radio {
   margin-right: 12px;
 }
 
-.filters .radio input[type="radio"] {
+.filters .form-type-radio input[type="radio"] {
   margin-top: 3px;
 }
 
@@ -235,6 +278,7 @@
   color: #777;
   border: none;
   padding: 0;
+  background: none;
 }
 
 .todo-list-form .clear-completed:hover {
@@ -242,8 +286,8 @@
   background: none;
 }
 
-.todo-list-form .radio label,
-.todo-list-form .checkbox label,
+.todo-list-form .form-type-radio label,
+.todo-list-form .form-type-checkbox label,
 .todo-list-form .btn {
   font-weight: 300;
 }
